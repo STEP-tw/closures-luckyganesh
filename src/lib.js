@@ -28,7 +28,24 @@ const makeDeltaTracker = function(startNumber){
     return deltaTracker;
   }
 }
-const makeFiboGenerator = undefined;
+const makeFiboGenerator = function(number1,number2){
+  let fibo = [0,1]
+  if(number2 == undefined && number1){
+    fibo[1] = number1;
+  }
+  if(number1 && number2){
+    fibo[0] = number1;
+    fibo[1] = number2;
+  }
+  let counter = 0;
+  return function(){
+    if(counter == 0 || counter == 1){
+      return fibo[counter++];
+    }
+    fibo[counter] = fibo[counter-1]+fibo[counter-2];
+    return fibo[counter++];
+  }
+}
 const makeCycler = undefined;
 const curry = undefined;
 const compose = undefined;
