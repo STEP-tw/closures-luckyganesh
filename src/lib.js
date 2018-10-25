@@ -46,7 +46,20 @@ const makeFiboGenerator = function(number1,number2){
     return fibo[counter++];
   }
 }
-const makeCycler = undefined;
+const makeCycler = function(elements){
+  let counter = 0;
+  let array = [];
+  array = elements.map(function(element){
+    return element;
+  });
+  const length =array.length;
+  return function(){
+    if(counter == length){
+      counter = 0;
+    }
+    return array[counter++];
+  }
+}
 const curry = undefined;
 const compose = undefined;
 
