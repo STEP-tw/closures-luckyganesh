@@ -15,13 +15,6 @@ const makeCounterFromZero = function(){
 };
 
 
-//const abcd = function(blah) {
-//  some initialization will not have a object
-//  return function() {
-//    return something
-//  }
-//}
-
 const makeDeltaTracker = function(startNumber){
   let old = startNumber;
   return function(delta = 0){
@@ -32,24 +25,24 @@ const makeDeltaTracker = function(startNumber){
   }
 }
 
-const makeFiboGenerator = function(number1,number2){
-  let fibo = [0,1]
-  if(number2 == undefined && number1){
-    fibo[1] = number1;
+const makeFiboGenerator = function(firstNum,secondNum){
+  if(!firstNum){
+    firstNum = 0;
+    secondNum = 1;
   }
-  if(number1 && number2){
-    fibo[0] = number1;
-    fibo[1] = number2;
+  if(!secondNum){
+    secondNum = firstNum;
+    firstNum = 0;
   }
-  let counter = 0;
   return function(){
-    if(counter == 0 || counter == 1){
-      return fibo[counter++];
-    }
-    fibo[counter] = fibo[counter-1]+fibo[counter-2];
-    return fibo[counter++];
+    let fibo = firstNum;
+    let sum = firstNum+secondNum;
+    firstNum = secondNum;
+    secondNum = sum;
+    return fibo;
   }
 }
+
 const makeCycler = function(elements){
   let counter = 0;
   let array = [];
