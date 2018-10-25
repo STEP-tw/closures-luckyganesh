@@ -66,7 +66,14 @@ const curry = function(functionToDo,element){
   }
 }
 
-const compose = undefined;
+const compose = function(function1,function2){
+  return function(value1,value2){
+    if(!value2){ 
+      return function1(function2(value1));
+    }
+    return function2(function1(value1),function1(value2));
+  }
+}
 
 exports.makeConstant=makeConstant;
 exports.makeCounterFromZero=makeCounterFromZero;
