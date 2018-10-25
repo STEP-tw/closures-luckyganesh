@@ -26,7 +26,7 @@ const makeDeltaTracker = function(startNumber){
 }
 
 const makeFiboGenerator = function(firstNum,secondNum){
-  if(!firstNum){
+  if(!secondNum && !firstNum){
     firstNum = 0;
     secondNum = 1;
   }
@@ -43,18 +43,14 @@ const makeFiboGenerator = function(firstNum,secondNum){
   }
 }
 
+const identity = function(element){return element};
+
 const makeCycler = function(elements){
   let counter = 0;
   let array = [];
-  array = elements.map(function(element){
-    return element;
-  });
-  const length =array.length;
+  array = elements.map(identity);
   return function(){
-    if(counter == length){
-      counter = 0;
-    }
-    return array[counter++];
+    return array[(counter++) % array.length];
   }
 }
 const curry = function(functionToDo,element){
