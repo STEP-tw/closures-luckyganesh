@@ -60,7 +60,12 @@ const makeCycler = function(elements){
     return array[counter++];
   }
 }
-const curry = undefined;
+const curry = function(functionToDo,element){
+  return function(value1,value2){
+    return functionToDo(element,value1,value2);
+  }
+}
+
 const compose = undefined;
 
 exports.makeConstant=makeConstant;
