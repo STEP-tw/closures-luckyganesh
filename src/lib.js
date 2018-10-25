@@ -54,9 +54,9 @@ const makeCycler = function(elements){
   }
 }
 
-const curry = function(functionToDo,element){
+const curry = function(func,element){
   return function(value1,value2){
-    return functionToDo(element,value1,value2);
+    return func(element,value1,value2);
   }
 }
 
