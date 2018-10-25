@@ -14,7 +14,20 @@ const makeCounterFromZero = function(){
   return makeCounterFromN(0);
 };
 
-const makeDeltaTracker = undefined;
+const makeDeltaTracker = function(startNumber){
+  let deltaTracker = {old :"" ,delta : "" , "new" : startNumber};
+  return function(number){
+    let {old,delta} = deltaTracker;
+    delta = number;
+    if(number == undefined){
+      delta = 0;
+    }
+    old = deltaTracker["new"];
+    deltaTracker = {old,delta};
+    deltaTracker["new"] = old+delta;
+    return deltaTracker;
+  }
+}
 const makeFiboGenerator = undefined;
 const makeCycler = undefined;
 const curry = undefined;
