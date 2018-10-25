@@ -32,7 +32,7 @@ const testCounterWithNegativeNumber = function() {
 
 const testCounterWithString= function() {
   let countString = makeCounterFromN("hello");
-  assert.equal("wrong input" , countString());
+  assert.equal("NaN" , countString().toString());
 }
 
 const runTests = function() {

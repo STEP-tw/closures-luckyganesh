@@ -5,13 +5,13 @@ const makeConstant = function(element){
 };
 const makeCounterFromN = function(number){
   return function(){
-    if(typeof(number) != "number"){
-      return "wrong input"
-    }
     return number++;
   }
 };
-const makeCounterFromZero = undefined;
+const makeCounterFromZero = undefined /*function(){
+  return makeCounterFromN(0);
+}
+*/
 const makeDeltaTracker = undefined;
 const makeFiboGenerator = undefined;
 const makeCycler = undefined;
