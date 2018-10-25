@@ -53,6 +53,7 @@ const makeCycler = function(elements){
     return array[(counter++) % array.length];
   }
 }
+
 const curry = function(functionToDo,element){
   return function(value1,value2){
     return functionToDo(element,value1,value2);
@@ -61,10 +62,7 @@ const curry = function(functionToDo,element){
 
 const compose = function(function1,function2){
   return function(value1,value2){
-    if(!value2){ 
-      return function1(function2(value1));
-    }
-    return function2(function1(value1),function1(value2));
+    return function1(function2(value1,value2));
   }
 }
 
