@@ -30,6 +30,11 @@ const testCounterWithNegativeNumber = function() {
   assert.equal(1, countBananas());
 };
 
+const testCounterWithString= function() {
+  let countString = makeCounterFromN("hello");
+  assert.equal("wrong input" , countString());
+}
+
 const runTests = function() {
   if(!makeCounterFromN) {
     console.log("Function 'makeCounterFromN' in not implemented yet. Not running tests.");
@@ -47,6 +52,10 @@ const runTests = function() {
 
   testCounterWithNegativeNumber();
   console.log("testCounterWithNegativeNumber passed");
+
+  testCounterWithString();
+  console.log("testCounterWithString passed");
+
 };
 
 runTests();
