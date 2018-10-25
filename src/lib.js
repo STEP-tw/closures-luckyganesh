@@ -14,20 +14,24 @@ const makeCounterFromZero = function(){
   return makeCounterFromN(0);
 };
 
+
+//const abcd = function(blah) {
+//  some initialization will not have a object
+//  return function() {
+//    return something
+//  }
+//}
+
 const makeDeltaTracker = function(startNumber){
-  let deltaTracker = {old :"" ,delta : "" , "new" : startNumber};
-  return function(number){
-    let {old,delta} = deltaTracker;
-    delta = number;
-    if(number == undefined){
-      delta = 0;
-    }
-    old = deltaTracker["new"];
-    deltaTracker = {old,delta};
-    deltaTracker["new"] = old+delta;
-    return deltaTracker;
+  let old = startNumber;
+  return function(delta = 0){
+    return {old,
+      delta,
+      new:(old = old + delta)
+    };
   }
 }
+
 const makeFiboGenerator = function(number1,number2){
   let fibo = [0,1]
   if(number2 == undefined && number1){
